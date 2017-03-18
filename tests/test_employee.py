@@ -7,7 +7,7 @@ class TestEmployee(TestCase):
         fname = 'Luke'
         lname = 'Thedad'
         sal = 10000000
-        employee = Employee(fname, lname, sal)
+        employee = Employee(fname, lname, sal, None)
         return employee
 
     def test_create_employee(self):
@@ -38,3 +38,9 @@ class TestEmployee(TestCase):
         new_sal = 20000000
         result = employee.walk()
         self.assertEqual(result, 'OK')
+
+    def test_add_ssn(self):
+        employee = self.get_test_employee()
+        ssn = '121-23-1433'
+        employee.ssn = ssn
+        self.assertEqual(employee.ssn, ssn)
